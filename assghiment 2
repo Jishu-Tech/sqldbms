@@ -11,6 +11,7 @@ BEGIN
    END IF;
 END;
 /
+
 2)Aspect an employs salary and determine the grade if salary is more then 50,000 then grade A if the number is more then 30,000 then grade B  if the salary is less then 30,000 then grade C
 Ans:
   SET SERVEROUTPUT ON;
@@ -28,14 +29,15 @@ BEGIN
    END IF;
 END;
 /
+
+
 3)write a pl/sql programme using for loop to insert 10 rows into table?
 Ans:
 
-                CREATE TABLE EMP_TABLE(
+     CREATE TABLE EMP_TABLE(
     emp_id number primary key,
     emp_name varchar2(100)
     );
-
               Table created.
 SQL> DECLARE
     v_name EMP_TABLE.emp_name %TYPE;
@@ -95,7 +97,7 @@ BEGIN
    /
 7)write a pl/sql programme to take a  department ID and department name using case
 Ans:
-SET SERVEROUTPUT ON;
+    SET SERVEROUTPUT ON;
 SET VERIFY OFF;
 DECLARE
    a INT;
