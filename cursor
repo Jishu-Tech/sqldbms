@@ -11,6 +11,8 @@ BEGIN
    END LOOP;
 END;
 /
+
+
 2)Write a cursor to display the list f employees who are working as a Managers or Analyst
 Ans:
  SET SERVEROUTPUT ON;
@@ -25,11 +27,6 @@ BEGIN
     END LOOP;
 END;
 /	
-
-
-
-
-
 
 
 
