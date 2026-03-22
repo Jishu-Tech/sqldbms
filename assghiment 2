@@ -1,0 +1,125 @@
+1)write a pl/sql Accept number from a user and display hello message if the entered numbered is possative	
+Ans:
+SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+DECLARE
+   a INT;
+BEGIN
+   a := &a;
+   IF a >= 0 THEN
+      dbms_output.put_line('hellow world');
+   END IF;
+END;
+/
+2)Aspect an employs salary and determine the grade if salary is more then 50,000 then grade A if the number is more then 30,000 then grade B  if the salary is less then 30,000 then grade C
+Ans:
+  SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+DECLARE
+   vi NUMBER;
+BEGIN
+   vi := &Enter_Value;
+   IF vi >= 50000 THEN
+      dbms_output.put_line('Grade A');
+   ELSIF vi >= 30000 THEN
+      dbms_output.put_line('Grade B');
+   ELSE
+      dbms_output.put_line('Grade C');
+   END IF;
+END;
+/
+3)write a pl/sql programme using for loop to insert 10 rows into table?
+Ans:
+
+                CREATE TABLE EMP_TABLE(
+    emp_id number primary key,
+    emp_name varchar2(100)
+    );
+
+              Table created.
+SQL> DECLARE
+    v_name EMP_TABLE.emp_name %TYPE;
+   BEGIN
+   FOR i IN 1..1 LOOP
+    v_name :='&name';
+      INSERT INTO EMP_TABLE(emp_id, emp_name)
+      VALUES(i,v_name);
+   END LOOP;
+   COMMIT;
+   END;
+  /
+4)write a sql programme to generate Fibonacci series?
+Ans:
+SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+DECLARE
+    a INT := 0;
+    b INT := 1;
+    c INT;
+    n INT;
+BEGIN
+    n := &n;
+    FOR i IN 1..n LOOP
+        DBMS_OUTPUT.PUT_LINE(a);
+        c := a + b;
+        a := b;
+        b := c;
+    END LOOP;
+END;
+/
+5)write a programme to get name and salary of specified employee using %type attribute?
+Ans:
+SET VERIFY OFF;
+DECLARE
+    v_name EMP_TABLE.emp_name%TYPE;
+BEGIN
+    v_name := '&name';
+    INSERT INTO EMP_TABLE(emp_id, emp_name)
+    VALUES (emp_seq.NEXTVAL, v_name);
+    COMMIT;
+END;
+/
+6)Write a pl/sql programme to display an given number in reverse order?
+Ans:
+ DECLARE
+    n int;
+    rev int:=0;
+BEGIN
+    n:= &n;
+    WHILE  n>0 LOOP
+        rev := rev *10+MOD(n,10);
+        n:=n/10;
+    END LOOP;
+    dbms_output.put_line('Reversed Number =' || rev);
+   END;
+   /
+7)write a pl/sql programme to take a  department ID and department name using case
+Ans:
+SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+DECLARE
+   a INT;
+BEGIN
+   a := &a;
+   CASE a
+      WHEN 10 THEN DBMS_OUTPUT.PUT_LINE('Finance’);
+      WHEN 20 THEN DBMS_OUTPUT.PUT_LINE('HR’);
+      WHEN 30 THEN DBMS_OUTPUT.PUT_LINE('IT’);
+      WHEN 40 THEN DBMS_OUTPUT.PUT_LINE('Sales’);
+      ELSE DBMS_OUTPUT.PUT_LINE('Invalid Department’);
+   END CASE;
+END;
+/
+8)write a pl/sql block using for loop to print the sum of first 100 odd numbers 
+Ans:
+SET SERVEROUTPUT ON;
+DECLARE
+   v_sum NUMBER := 0;
+BEGIN
+   FOR i IN 1..100 LOOP
+      v_sum := v_sum + (2*i - 1);
+   END LOOP;
+   DBMS_OUTPUT.PUT_LINE('Sum of first 100 odd numbers = ' || v_sum);
+END;
+/
+
