@@ -30,8 +30,25 @@ BEGIN
 END;
 /
 
+3)Write a pl/sql program to displayb salaryb of specified employee increasing by 500 if it more tghan 3000
+Ans:
+   SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+DECLARE
+   a NUMBER;
+BEGIN
+   a := &Enter_Value;
+   IF a >= 3000 THEN
+      a:=a+500;
+      dbms_output.put_line(a);
 
-3)write a pl/sql programme using for loop to insert 10 rows into table?
+   END IF;
+
+END;
+/
+
+
+4)write a pl/sql programme using for loop to insert 10 rows into table?
 Ans:
 
      CREATE TABLE EMP_TABLE(
@@ -50,7 +67,7 @@ SQL> DECLARE
    COMMIT;
    END;
   /
-4)write a sql programme to generate Fibonacci series?
+5)write a sql programme to generate Fibonacci series?
 Ans:
 SET SERVEROUTPUT ON;
 SET VERIFY OFF;
@@ -69,7 +86,7 @@ BEGIN
     END LOOP;
 END;
 /
-5)write a programme to get name and salary of specified employee using %type attribute?
+6)write a programme to get name and salary of specified employee using %type attribute?
 Ans:
 SET VERIFY OFF;
 DECLARE
@@ -81,7 +98,7 @@ BEGIN
     COMMIT;
 END;
 /
-6)Write a pl/sql programme to display an given number in reverse order?
+7)Write a pl/sql programme to display an given number in reverse order?
 Ans:
  DECLARE
     n int;
@@ -95,7 +112,7 @@ BEGIN
     dbms_output.put_line('Reversed Number =' || rev);
    END;
    /
-7)write a pl/sql programme to take a  department ID and department name using case
+8)write a pl/sql programme to take a  department ID and department name using case
 Ans:
     SET SERVEROUTPUT ON;
 SET VERIFY OFF;
@@ -112,7 +129,23 @@ BEGIN
    END CASE;
 END;
 /
-8)write a pl/sql block using for loop to print the sum of first 100 odd numbers 
+9)Write a pl/sql programme to get name and salary to specified employee 
+Ans:
+SET SERVEROUTPUT ON;
+DECLARE
+     V_name VARCHAR(50);
+     V_ salary NUMBER;
+BEGIN
+     SELECT emp_name ,salary 
+     INTO v_name,v_salry
+    FROM  EMP_TABLE
+     WHERE emp_name=”&name”
+     DBMS.OUTPUT.PUT_LINE(‘NAME:’||V_name);
+     DBMS_OUTPUT.PUT_LINE(‘Salary:’||V_salary);
+END;
+/
+
+10)write a pl/sql block using for loop to print the sum of first 100 odd numbers 
 Ans:
 SET SERVEROUTPUT ON;
 DECLARE
