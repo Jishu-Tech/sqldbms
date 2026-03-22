@@ -1,0 +1,65 @@
+1)write a pl/sql block that will display the employee derails along with salary using cursor 
+Ans:
+      SET SERVEROUTPUT ON;
+DECLEAR 
+    CURSOR e_emp IS
+       SELECT emp_name,emp_id 
+       FROM EMP_TABLE;
+BEGIN
+   FOR r in e_emp OOP
+       DBMS_OUTPUT.PUT_LINE(r.emp_name ||' '||r.emp_id);
+   END LOOP;
+END;
+/
+2)Write a cursor to display the list f employees who are working as a Managers or Analyst
+Ans:
+ SET SERVEROUTPUT ON;
+DECLARE
+    CURSOR e_emp IS
+        SELECT emp_no, ename, job
+        FROM emp
+        WHERE job IN ('MANAGER','ANALYST');
+BEGIN
+    FOR r IN e_emp LOOP
+        DBMS_OUTPUT.PUT_LINE(r.emp_no || ' ' || r.ename || ' ' || r.job);
+    END LOOP;
+END;
+/	
+
+
+
+
+
+
+
+
+3)Using cursor FOR LOOP increase the salary of employess in the sales determent by 10% . Also display the old and new salary 
+Ans:
+        SET SERVEROUTPUT ON;
+DECLARE
+    CURSOR sales_cursor IS
+        SELECT e.empno, e.sal, e.ename
+        FROM emp e
+        JOIN dept d ON e.deptno = d.deptno
+        WHERE d.dname = 'SALES';
+
+    v_new_sal emp.sal%TYPE;
+
+BEGIN
+    FOR emp_rec IN sales_cursor LOOP
+        v_new_sal := emp_rec.sal * 1.10;
+
+        DBMS_OUTPUT.PUT_LINE(
+            'Employee: ' || emp_rec.ename ||
+            ' | Old Salary: ' || emp_rec.sal ||
+            ' | New Salary: ' || v_new_sal
+        );
+
+        UPDATE emp
+        SET sal = v_new_sal
+        WHERE empno = emp_rec.empno;
+    END LOOP;
+
+    COMMIT;
+END;
+/
