@@ -6,7 +6,7 @@ DECLEAR
        SELECT emp_name,emp_id 
        FROM EMP_TABLE;
 BEGIN
-   FOR r in e_emp OOP
+   FOR r in e_emp LOOP
        DBMS_OUTPUT.PUT_LINE(r.emp_name ||' '||r.emp_id);
    END LOOP;
 END;
